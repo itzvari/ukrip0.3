@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Квантові алгоритми – IDE</title>
+<link href="CSS/main.css" rel="stylesheet"/>
+<link href="CSS/ide.css" rel="stylesheet"/>
+
+<script src="JS/mathjax-config.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<header class="navbar">
+<a class="logo" href="index.html"><img class="logo-icon" src="images/site-emblem.png" alt="Емблема квантового криптоаналізу"><span>КВАНТОВИЙ КРИПТОАНАЛІЗ</span></a>
+<nav><ul class="nav-menu">
+<li><a href="index.html">Головна</a></li>
+<li><a href="foundations.html">Основи</a></li>
+<li><a href="theory.html">Теорія</a></li>
+<li><a class="active" href="ide.html">Алгоритми</a></li>
+<li><a href="sources.html">Джерела</a></li>
+</ul></nav>
+</header>
+<main class="ide-page">
+<section class="algo-buttons" id="algo-buttons"></section>
+<section class="algo-view">
+<div class="algo-block"><h3>Опис алгоритму</h3><div id="algo-description"></div></div>
+<div class="algo-block" id="general-formulas-block"><h3>Основні формули</h3><div id="algo-formulas"></div></div>
+<div class="algo-block" id="kuperberg-stages-block" hidden>
+<h3 id="kuperberg-stage-title">Етап 1. Ініціалізація та квантова суперпозиція</h3>
+<div id="kuperberg-stage-content"></div>
+</div>
+<div class="algo-block"><h3>Квантова схема</h3>
+<div id="circuit-generator" class="circuit-generator">
+  <div class="circuit-stage-info" id="circuit-stage-info">Для Куперберга-2 схема буде створена програмно.</div>
+  <div class="circuit-stage-controls">
+    <button type="button" id="circuit-prev">← Попередній крок</button>
+    <span id="circuit-step">Крок 0 / 4</span>
+    <button type="button" id="circuit-next">Наступний крок →</button>
+    <button type="button" id="circuit-full">Показати всю схему</button>
+  </div>
+  <div id="circuit-container" class="circuit-container"></div>
+</div>
+<div id="circuit4-generator" class="circuit-generator" hidden>
+  <div class="circuit-stage-info" id="circuit4-stage-info">Для Куперберга-4 схема буде створена програмно.</div>
+  <div class="circuit-stage-controls">
+    <button type="button" id="circuit4-prev">← Попередній крок</button>
+    <span id="circuit4-step">Крок 0 / 4</span>
+    <button type="button" id="circuit4-next">Наступний крок →</button>
+    <button type="button" id="circuit4-full">Показати всю схему</button>
+  </div>
+  <div id="circuit4-container" class="circuit-container"></div>
+</div>
+<img alt="Квантова схема" class="algo-image" id="algo-image" src=""/></div>
+<div class="algo-block"><h3>Результат моделювання</h3><div class="result-box" id="algo-result"></div></div>
+<div class="algo-block"><h3>Код (Python / Qiskit)</h3><pre class="code-box" id="algo-code"></pre>
+<button id="copy-code">Скопіювати код</button><button id="download-code">Завантажити код</button></div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer" aria-label="Інформація про проєкт"></footer>
+<script defer src="JS/kuperberg2-circuit.js"></script>
+<script defer src="JS/kuperberg4-circuit.js"></script>
+<script defer src="JS/ide.js"></script>
+<script defer src="JS/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Теорія — Квантовий Криптоаналіз</title>
+<link href="CSS/main.css" rel="stylesheet"/>
+<link href="CSS/theory.css" rel="stylesheet"/>
+<!-- MathJax для відображення математичних формул -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<!-- Шапка із випадаючим меню -->
+<header class="navbar">
+<a class="logo" href="index.html">
+<img class="logo-icon" src="images/site-emblem.png" alt="Емблема квантового криптоаналізу">
+<span>КВАНТОВИЙ КРИПТОАНАЛІЗ</span>
+</a>
+<nav>
+<ul class="nav-menu">
+<li><a href="index.html">Головна</a></li>
+<li><a href="foundations.html">Основи</a></li>
+<li><a class="active" href="theory.html">Теорія</a></li>
+<li><a href="ide.html">Алгоритми</a></li>
+<li><a href="sources.html">Джерела</a></li>
+</ul>
+</nav>
+</header>
+<main class="main-container">
+<div class="inline-style-0">
+<h1 class="inline-style-1">
+                Теоретичні підвалини квантового криптоаналізу
+            </h1>
+<p class="inline-style-2">
+                Математичний апарат квантової загрози сучасній асиметричній криптографії та принципи роботи алгоритму Куперберга.
+            </p>
+</div>
+<!-- Розділ 1: Класична vs Постквантова криптографія -->
+<article class="theory-card">
+<h2>1. Загроза квантових обчислень класичній криптографії</h2>
+<p>
+                Сучасний захист інформації у мережі Інтернет (SSL/TLS, RSA, ECC, Diffie-Hellman) базується на складності двох математичних задач: <strong>факторизації великих цілих чисел</strong> та <strong>дискретного логарифмування</strong>.
+            </p>
+<p>
+                Класичні суперкомп'ютери потребують експоненційного часу для їх розв'язання. Однак квантовий <strong>алгоритм Шора</strong> дозволяє розв'язувати ці задачі за поліноміальний час \(O((\log N)^3)\), що робить класичні криптосистеми вразливими.
+            </p>
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Криптосистема</th>
+<th>Математична основа</th>
+<th>Складність (Класична)</th>
+<th>Складність (Квантова)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RSA</strong></td>
+<td>Факторизація цілих чисел</td>
+<td>Субекспоненційна \(N^{1/3}\)</td>
+<td>Поліноміальна (Шор)</td>
+</tr>
+<tr>
+<td><strong>ECC (Еліптичні криві)</strong></td>
+<td>Дискретне логарифмування</td>
+<td>Експоненційна \(\sqrt{p}\)</td>
+<td>Поліноміальна (Шор)</td>
+</tr>
+<tr>
+<td><strong>Lattice-based (Ґратки)</strong></td>
+<td>Shortest Vector Problem (SVP)</td>
+<td>Експоненційна \(2^{O(n)}\)</td>
+<td>Субекспоненційна (Куперберг)</td>
+</tr>
+</tbody>
+</table>
+</article>
+<!-- Розділ 2: Прихована підгрупова задача (HSP) -->
+<article class="theory-card">
+<h2>2. Неабелева прихована підгрупова задача (HSP)</h2>
+<p>
+                Більшість алгоритмів квантового прискорення узагальнюються до <strong>Hidden Subgroup Problem (HSP)</strong>. Нехай дана скінченна група \(G\) та функція \(f: G \to X\), яка приймає однакові значення тоді й лише тоді, коли елементи належать одному суміжному класу за підгрупою \(H \le G\):
+            </p>
+<div class="formula-box">
+                \[ f(g_1) = f(g_2) \iff g_1 H = g_2 H, \quad g_1, g_2 \in G \]
+            </div>
+<p>
+                Якщо група \(G\) є <strong>абелевою</strong> (комутативною), квантове перетворення Фур'є (QFT) розв'язує HSP за поліноміальний час. Проте для <strong>неабелевих груп</strong> (зокрема, діедральних груп \(D_n\)) стандартне QFT не дає прямих результатів, що вимагає застосування спеціалізованих алгоритмів.
+            </p>
+</article>
+<!-- Розділ 3: Алгоритм Куперберга -->
+<article class="theory-card">
+<h2>3. Суть та складність алгоритму Куперберга</h2>
+<p>
+                Розроблений Грегом Купербергом (Greg Kuperberg) у 2003 році, цей алгоритм призначений для розв'язання HSP на <strong>діедральних групах \(D_n\)</strong> (задача прихованого зсуву / Dihedral Hidden Subgroup Problem).
+            </p>
+<p>
+                Замість прямого вимірювання після QFT, алгоритм Куперберга накопичує та комбінує спеціальні квантові стани через процедуру <strong>фазового просіювання (Phase Sieving)</strong>.
+            </p>
+<div class="formula-box">
+                \[ \text{Часова складність та пам'ять: } 2^{O(\sqrt{\log N})} \]
+            </div>
+<div class="info-callout">
+<h4>🔑 Криптографічна значимість</h4>
+<p>
+                    Складність \(2^{O(\sqrt{\log N})}\) є субекспоненційною. Вона показує, що постквантові криптоалгоритми на основі діедральних груп та деяких типів ґраток мають нижчий рівень захищеності перед квантовим аналізом, ніж вважалося раніше.
+                </p>
+</div>
+</article>
+</main>
+<footer id="site-footer" class="site-footer" aria-label="Інформація про проєкт"></footer>
+<script src="JS/main.js"></script>
+</body>
+</html>

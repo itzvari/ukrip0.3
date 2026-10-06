@@ -1,0 +1,56 @@
+/* CSS/foundations.css */
+.section-anchor {
+    scroll-margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.foundations-card {
+    background-color: var(--card-bg, #111a2e);
+    border: 1px solid var(--card-border, #1e2d4a);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.2s ease;
+}
+
+.foundations-card:hover {
+    border-color: var(--accent-blue, #38bdf8);
+}
+
+.foundations-card h2 {
+    color: var(--accent-blue, #38bdf8);
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.foundations-card p {
+    color: var(--text-secondary, #94a3b8);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.concept-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.concept-list li {
+    color: var(--text-primary, #ffffff);
+    font-size: 0.92rem;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background-color: rgba(15, 23, 42, 0.5);
+    border-left: 3px solid var(--accent-blue, #38bdf8);
+    border-radius: 4px;
+}
+
+/* Inline styles moved from HTML for project structure compliance */
+.inline-style-0 { margin-bottom:25px; }
+.inline-style-1 { color:#cbd5e1;line-height:1.7;margin:0; }
+.inline-style-2 { list-style:none; }

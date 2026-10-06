@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Основи квантових обчислень — Квантовий Криптоаналіз</title>
+<link href="CSS/main.css" rel="stylesheet"/>
+<link href="CSS/foundations.css" rel="stylesheet"/>
+
+<script async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<header class="navbar">
+<a class="logo" href="index.html"><img class="logo-icon" src="images/site-emblem.png" alt="Емблема квантового криптоаналізу"><span>КВАНТОВИЙ КРИПТОАНАЛІЗ</span></a>
+<nav><ul class="nav-menu">
+<li><a href="index.html">Головна</a></li>
+<li><a href="foundations.html" class="active">Основи</a></li>
+<li><a href="theory.html">Теорія</a></li>
+<li><a href="ide.html">Алгоритми</a></li>
+<li><a href="sources.html">Джерела</a></li>
+</ul></nav>
+</header>
+<main class="main-container">
+<section class="passport-section inline-style-0">
+<h1 class="section-title">Основи квантових обчислень</h1>
+<p class="inline-style-1">Цей розділ містить базові поняття, необхідні для розуміння квантових алгоритмів, задачі прихованої підгрупи та практичної реалізації схем у Qiskit.</p>
+</section>
+<section class="section-anchor foundations-card" id="sec1">
+<h2>1. Основні поняття квантових технологій</h2>
+<p>Квантові технології використовують властивості квантових систем — суперпозицію, заплутаність та інтерференцію. У квантових обчисленнях інформація кодується кубітами, а перетворення виконуються унітарними квантовими операціями.</p>
+<ul class="concept-list">
+<li><strong>Кубіт</strong> — квантова система з двома базовими станами \(|0\rangle\) та \(|1\rangle\).</li>
+<li><strong>Суперпозиція</strong> — лінійна комбінація базових станів, наприклад \(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\).</li>
+<li><strong>Заплутаність</strong> — квантова кореляція, яка не зводиться до незалежного опису окремих кубітів.</li>
+<li><strong>Інтерференція</strong> — кероване підсилення одних амплітуд і послаблення інших.</li>
+</ul>
+</section>
+<section class="section-anchor foundations-card" id="sec2">
+<h2>2. Квантові обчислення та квантові стани</h2>
+<p>Для \(n\) кубітів базисні стани утворюють простір розмірності \(2^n\). Загальний стан можна записати як</p>
+<div class="concept-list"><li class="inline-style-2">\[|\psi\rangle=\sum_{x=0}^{2^n-1}\alpha_x|x\rangle,\qquad \sum_x|\alpha_x|^2=1.\]</li></div>
+<p>Квантова схема складається з вентилів. Наприклад, вентиль Адамара створює суперпозицію: \(H|0\rangle=(|0\rangle+|1\rangle)/\sqrt2\). Вимірювання переводить квантовий стан у класичний результат із відповідними ймовірностями.</p>
+</section>
+<section class="section-anchor foundations-card" id="sec3">
+<h2>3. Прихована підгрупова задача (HSP)</h2>
+<p>Задача прихованої підгрупи полягає у визначенні підгрупи \(H\) групи \(G\), якщо задана функція стала на класах суміжності за \(H\) і відрізняється на різних класах.</p>
+<ul class="concept-list">
+<li><strong>Група \(G\)</strong> — множина з бінарною операцією, що задовольняє аксіомам групи.</li>
+<li><strong>Підгрупа \(H\le G\)</strong> — підмножина, яка сама є групою відносно тієї самої операції.</li>
+<li><strong>Оракул</strong> — процедура, що дає змогу отримувати інформацію про функцію, яка приховує структуру \(H\).</li>
+<li><strong>Застосування</strong> — HSP є узагальнюючою основою для низки квантових алгоритмів, зокрема алгоритмів для абелевих груп; неабелева HSP пов’язана з важливими задачами квантової теорії алгоритмів.</li>
+</ul>
+</section>
+<section class="section-anchor foundations-card" id="sec4">
+<h2>4. Програмні засоби для обчислень</h2>
+<p>Для практичної частини роботи використовуються Python та бібліотека Qiskit. Квантову схему можна описати об'єктом <code>QuantumCircuit</code>, а окремі вентилі задавати методами на кшталт <code>h()</code>, <code>cx()</code>, <code>cz()</code> та <code>measure()</code>.</p>
+<ul class="concept-list">
+<li><strong>Python</strong> — мова програмування для реалізації та дослідження алгоритмів.</li>
+<li><strong>Qiskit</strong> — набір інструментів для побудови й аналізу квантових схем.</li>
+<li><strong>Симулятор</strong> — програмне середовище, яке моделює виконання квантової схеми без фізичного квантового процесора.</li>
+<li><strong>Google Colab</strong> — хмарне середовище, у якому можна запускати Python-код та встановлювати потрібні пакети.</li>
+</ul>
+</section>
+</main>
+<footer id="site-footer" class="site-footer" aria-label="Інформація про проєкт"></footer>
+<script src="JS/foundations.js"></script>
+<script src="JS/main.js"></script>
+</body>
+</html>
